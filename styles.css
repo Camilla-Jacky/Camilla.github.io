@@ -548,6 +548,10 @@ h3 {
 
 .profile-metrics div,
 .case-metrics div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 94px;
   padding: 16px 12px;
   border: 2px solid var(--text);
   border-radius: 16px;
@@ -574,9 +578,10 @@ h3 {
 .case-metrics strong {
   display: block;
   color: var(--blue);
-  font-size: 25px;
+  font-size: clamp(22px, 2vw, 25px);
   line-height: 1;
   font-weight: 880;
+  white-space: nowrap;
 }
 
 .profile-metrics span,
@@ -585,7 +590,10 @@ h3 {
   margin-top: 7px;
   color: var(--muted);
   font-size: 12px;
+  line-height: 1.35;
   font-weight: 720;
+  min-height: 32px;
+  text-wrap: balance;
 }
 
 .profile-note {
@@ -979,13 +987,13 @@ h3 {
 .music-widget {
   position: fixed;
   right: 24px;
-  bottom: 22px;
+  bottom: max(22px, env(safe-area-inset-bottom));
   z-index: 40;
   display: grid;
-  grid-template-columns: 34px 24px;
+  grid-template-columns: 34px minmax(112px, 148px) 24px 24px;
   align-items: center;
   gap: 7px;
-  padding: 6px;
+  padding: 6px 8px 6px 6px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   border: 2px solid var(--text);
@@ -1057,7 +1065,8 @@ h3 {
 }
 
 .music-meta {
-  display: none;
+  display: block;
+  min-width: 0;
 }
 
 .music-meta span {
@@ -1090,10 +1099,7 @@ h3 {
   font-weight: 950;
 }
 
-.music-widget .music-link {
-  display: none;
-}
-
+.music-link:hover,
 .music-next:hover {
   color: #fff;
   background: var(--blue);
@@ -1263,6 +1269,32 @@ h3 {
   }
 
   .music-widget {
-    display: none;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    grid-template-columns: 32px minmax(92px, 120px) 22px 22px;
+    gap: 6px;
+    padding: 5px 7px 5px 5px;
+    max-width: calc(100vw - 24px);
+    box-shadow: 3px 3px 0 var(--text);
+  }
+
+  .music-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .music-next,
+  .music-link {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  .music-meta span {
+    font-size: 9px;
+  }
+
+  .music-meta strong {
+    font-size: 12px;
   }
 }
