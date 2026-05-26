@@ -250,12 +250,9 @@ musicToggle?.addEventListener("click", () => {
 });
 
 musicNext?.addEventListener("click", () => {
-  const shouldKeepPlaying = Boolean(audioPlayer && (!audioPlayer.paused || isAudioReady));
   trackIndex = (trackIndex + 1) % tracks.length;
   renderTrack();
-  if (shouldKeepPlaying) {
-    playCurrentTrack();
-  }
+  playCurrentTrack();
 });
 
 audioPlayer?.addEventListener("ended", () => {
