@@ -560,17 +560,34 @@ h3 {
   transition: background 170ms ease, transform 170ms ease, box-shadow 170ms ease;
 }
 
+.profile-metrics div:hover,
+.case-metrics div:hover {
+  transform: translateY(-5px) rotate(-0.4deg);
+  background: #fff7df;
+  box-shadow: 5px 5px 0 var(--text);
+}
+
+.case-metrics div:nth-child(even):hover {
+  transform: translateY(-5px) rotate(0.4deg);
+}
+
 .profile-metrics div:active,
-.profile-metrics div.tap-highlight {
+.profile-metrics div.tap-highlight,
+.case-metrics div:active,
+.case-metrics div.tap-highlight {
   background: var(--pink);
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: 4px 4px 0 var(--text);
 }
 
 .profile-metrics div:active strong,
 .profile-metrics div:active span,
 .profile-metrics div.tap-highlight strong,
-.profile-metrics div.tap-highlight span {
+.profile-metrics div.tap-highlight span,
+.case-metrics div:active strong,
+.case-metrics div:active span,
+.case-metrics div.tap-highlight strong,
+.case-metrics div.tap-highlight span {
   color: #fff;
 }
 
@@ -871,10 +888,13 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  margin: 10px -36px -34px;
-  padding: 22px 26px 22px 28px;
-  color: #fff;
-  background: var(--blue);
+  margin: 12px 0 0;
+  padding: 18px 20px;
+  border: 2px solid var(--blue);
+  border-radius: 18px;
+  color: var(--text);
+  background: #f6f9ff;
+  box-shadow: 5px 5px 0 rgba(46, 119, 238, 0.18);
 }
 
 .prototype-copy {
@@ -884,11 +904,13 @@ h3 {
 .prototype-kicker {
   display: inline-flex;
   margin-bottom: 10px;
-  padding: 4px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.48);
+  padding: 5px 10px;
+  border: 2px solid var(--text);
   border-radius: 999px;
+  color: #fff;
+  background: var(--blue);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 850;
   line-height: 1;
 }
 
@@ -907,11 +929,12 @@ h3 {
 
 .prototype-tags span {
   padding: 5px 10px;
+  border: 1px solid rgba(46, 119, 238, 0.32);
   border-radius: 999px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.16);
+  color: var(--blue);
+  background: #e7f0ff;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 850;
   line-height: 1;
 }
 
@@ -920,18 +943,21 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 15px;
+  padding: 12px 15px;
   border: 2px solid var(--text);
   border-radius: 999px;
   color: var(--text);
   background: var(--yellow);
-  font-weight: 800;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 4px 4px 0 var(--text);
+  font-size: 14px;
+  font-weight: 900;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .prototype-entry a:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--text);
+  background: var(--pink);
+  box-shadow: 6px 6px 0 var(--text);
 }
 
 .project-insights {
@@ -1384,8 +1410,8 @@ h3 {
   .prototype-entry {
     align-items: flex-start;
     flex-direction: column;
-    margin: 24px -24px -24px;
-    padding: 20px 24px 22px;
+    margin: 20px 0 0;
+    padding: 18px;
   }
 
   .prototype-entry a {
@@ -1427,4 +1453,3 @@ h3 {
     font-size: 12px;
   }
 }
-

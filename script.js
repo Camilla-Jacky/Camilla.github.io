@@ -131,7 +131,7 @@ const addTapFeedback = (selector, className) => {
 };
 
 addTapFeedback(".project-case", "tap-lift");
-addTapFeedback(".profile-card, .profile-tags span, .profile-metrics div", "tap-highlight");
+addTapFeedback(".profile-card, .profile-tags span, .profile-metrics div, .case-metrics div", "tap-highlight");
 
 const revealTargets = [
   ".hero-copy",
