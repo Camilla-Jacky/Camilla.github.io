@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #ffffff;
   --surface: #ffffff;
   --paper: #f7f7f3;
@@ -794,8 +794,8 @@ h3 {
 
 .featured-projects {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .project-case {
@@ -807,6 +807,11 @@ h3 {
 .project-case.accent {
   border-top-color: #08a77b;
   background: #f1fff8;
+}
+
+.project-case.ai-case {
+  border-top-color: var(--pink);
+  background: #fff5fa;
 }
 
 .case-head {
@@ -1248,9 +1253,12 @@ h3 {
   }
 
   .hero-inner,
-  .featured-projects,
   .contact-card {
     grid-template-columns: 1fr;
+  }
+
+  .featured-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .profile-card {
@@ -1312,6 +1320,7 @@ h3 {
   .case-metrics,
   .about-grid,
   .skills-board,
+  .featured-projects,
   .project-insights {
     grid-template-columns: 1fr;
   }
@@ -1379,3 +1388,5 @@ h3 {
     font-size: 12px;
   }
 }
+
+
