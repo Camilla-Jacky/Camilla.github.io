@@ -542,7 +542,7 @@ h3 {
 .profile-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 12px;
   margin: 24px 0;
 }
 
@@ -674,12 +674,13 @@ h3 {
 }
 
 .project-case:hover {
-  transform: translateY(-8px) rotate(-0.5deg);
-  box-shadow: 12px 12px 0 var(--text);
+  transform: translate(-5px, -6px);
+  box-shadow: 13px 13px 0 var(--text);
 }
 
-.project-case.accent:hover {
-  transform: translateY(-8px) rotate(0.5deg);
+.project-case.accent:hover,
+.project-case.ai-case:hover {
+  transform: translate(-5px, -6px);
 }
 
 .project-case {
@@ -688,14 +689,20 @@ h3 {
 
 .project-case:active,
 .project-case.tap-lift {
-  transform: translateY(-13px) rotate(-0.8deg) scale(1.012);
+  transform: translate(-3px, -10px) scale(1.006);
   box-shadow: 15px 15px 0 var(--blue);
 }
 
 .project-case.accent:active,
 .project-case.accent.tap-lift {
-  transform: translateY(-13px) rotate(0.8deg) scale(1.012);
+  transform: translate(-3px, -10px) scale(1.006);
   box-shadow: 15px 15px 0 #08a77b;
+}
+
+.project-case.ai-case:active,
+.project-case.ai-case.tap-lift {
+  transform: translate(-3px, -10px) scale(1.006);
+  box-shadow: 15px 15px 0 var(--pink);
 }
 
 .about-grid article,
@@ -794,55 +801,77 @@ h3 {
 
 .featured-projects {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 28px;
 }
 
 .project-case {
-  padding: 28px;
-  border-top: 6px solid var(--blue);
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(440px, 1.08fr);
+  grid-template-areas:
+    "head metrics"
+    "desc points"
+    "demo demo";
+  column-gap: 40px;
+  row-gap: 20px;
+  align-items: start;
+  padding: 34px 36px;
+  border-left: 8px solid var(--blue);
+  border-top: 3px solid var(--text);
   overflow: hidden;
 }
 
 .project-case.accent {
-  border-top-color: #08a77b;
+  border-left-color: #08a77b;
   background: #f1fff8;
 }
 
 .project-case.ai-case {
-  border-top-color: var(--pink);
+  border-left-color: var(--pink);
   background: #fff5fa;
 }
 
 .case-head {
-  margin-bottom: 18px;
+  grid-area: head;
+  margin-bottom: 0;
 }
 
 .case-head h3 {
   margin: 12px 0 0;
-  font-size: 25px;
+  font-size: clamp(26px, 2.5vw, 36px);
+  line-height: 1.18;
 }
 
 .case-metrics {
+  grid-area: metrics;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 22px 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.project-case > p {
+  grid-area: desc;
+  margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.86;
 }
 
 .project-case ul {
+  grid-area: points;
   display: grid;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .prototype-entry {
+  grid-area: demo;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  margin: 26px -28px -28px;
+  margin: 10px -36px -34px;
   padding: 22px 26px 22px 28px;
   color: #fff;
   background: var(--blue);
@@ -1258,7 +1287,17 @@ h3 {
   }
 
   .featured-projects {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  .project-case {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "desc"
+      "metrics"
+      "points"
+      "demo";
   }
 
   .profile-card {
@@ -1388,5 +1427,4 @@ h3 {
     font-size: 12px;
   }
 }
-
 
